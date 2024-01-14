@@ -1,3 +1,1 @@
-#Biblioteca - Manipulação do mouse e teclado
-import pyautogui
-#Biblioteca -
+# Farei uma automação para o meu estágio. Irei atualizar com o tempo
