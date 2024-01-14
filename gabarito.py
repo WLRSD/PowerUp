@@ -52,14 +52,14 @@ print(tabela)
 for linha in tabela.index:
     # clicar no campo de código
     pyautogui.click(x=653, y=294)
-    # pegar da tabela o valor do campo que a gente quer preencher
+    # pegar da tabela o valor do campo que a gente quer preencher (linha e coluna)
     codigo = tabela.loc[linha, "codigo"]
     # preencher o campo
     pyautogui.write(str(codigo))
     # passar para o proximo campo
     pyautogui.press("tab")
-    # preencher o campo
-    pyautogui.write(str(tabela.loc[linha, "marca"]))
+    # preencher o campo 
+    pyautogui.write(str(tabela.loc[linha, "marca"])) #O tabela.lock é do pandas
     pyautogui.press("tab")
     pyautogui.write(str(tabela.loc[linha, "tipo"]))
     pyautogui.press("tab")
@@ -69,8 +69,8 @@ for linha in tabela.index:
     pyautogui.press("tab")
     pyautogui.write(str(tabela.loc[linha, "custo"]))
     pyautogui.press("tab")
-    obs = tabela.loc[linha, "obs"]
-    if not pd.isna(obs):
+    obs = tabela.loc[linha, "obs"] #Condicional para verificar se é NAN (not a number).
+    if not pd.isna(obs): #Se não for branco, escreva, senão, vá para a próxima etapa
         pyautogui.write(str(tabela.loc[linha, "obs"]))
     pyautogui.press("tab")
     pyautogui.press("enter") # cadastra o produto (botao enviar)
